@@ -1,0 +1,94 @@
+:root{
+    --rotateValue: 0deg;
+    --moveFarwardValue: 0px;
+    --moveFarwardXValue: 0px;
+    --negativeRotateValue: 0deg;
+    --visibilityValue: hidden;
+    --newIncreasedSize: " ";
+    --tailColor: orange;
+    --tailTipColor:white ;
+    --legColor: orange;
+    --armColor: orange;
+    --bodyAndBackLegColor: orange;
+    --stomachColor: white;
+    --mouthColor: white;
+    --teathColor: white;
+    --pupilColor: white;
+    --noseColor: black;
+    --catVisibility: visible;
+}
+
+
+.wholeCat{
+    /* transform: translate(var(--moveFarwardValue), 20px) rotate(var(--rotateValue)); */
+    /* transform: rotate(var(--rotateValue)); */
+    transform: rotate(var(--rotateValue)) translate(var(--moveFarwardValue),var(--moveFarwardXValue));
+    /* position: relative; */
+    /* animation: mymove 5s linear infinite;
+    animation-direction: alternate; */
+    size: 400px;
+    visibility: var(--catVisibility);
+}
+.invisible{
+    
+    visibility: var(--visibilityValue);
+}
+.dimentions{
+    width: var(--newIncreasedSize);
+    height: var(--newIncreasedSize);
+}
+
+.tail{
+    fill: var(--tailColor);
+}
+.tailTip{
+    fill: var(--tailTipColor);
+}
+.legs{
+    fill: var(--legColor);
+}
+.arm{
+    fill: var(--armColor);
+}
+
+.button{
+  background-color: blue;
+  border: none;
+  color: white;
+  padding: 3px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.bodyAndBackLeg{
+    fill: var(--bodyAndBackLegColor);
+}
+
+
+.stomach{
+    fill: var(--stomachColor);
+}
+.mouth{
+    fill: var(--mouthColor);
+}
+.teathColor{
+    fill: var(--teathColor)
+}
+
+.pupil{
+    fill: var(--pupilColor);
+}
+
+.nose{
+    fill: var(--noseColor);
+}
+/* @keyframes mymove {
+  
+  100% {left: 200px; top: 200px;}
+  } */
+/* 
+rotate3d(x,y,z,angle) */

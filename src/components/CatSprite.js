@@ -1,7 +1,23 @@
 import React from "react";
+import classes from "./CSS/movements.module.css"
+import { useDispatch, useSelector } from "react-redux";
+// import images from "../../public/icons/image.jpeg"
 
 export default function CatSprite() {
+  const { hello,hmm } = useSelector((state) => state);
+  console.log(hello," ", hmm);
   return (
+    <div className={classes.wholeCat}>
+      {/* <img src={images} /> */}
+      {hello? 
+      <svg height="30" width="200" class={classes.invisible} >
+        <text x="0" y="15" fill="red">   Hello</text>
+      </svg> : 
+      <svg height="30" width="200" class={classes.invisible} >
+        <text x="0" y="15" fill="red">Hmm</text>
+      </svg>
+      }
+      
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="95.17898101806641"
@@ -9,9 +25,12 @@ export default function CatSprite() {
       viewBox="0.3210171699523926 0.3000000357627869 95.17898101806641 100.04156036376953"
       version="1.1"
       xmlSpace="preserve"
+      className={classes.dimentions}
+      
     >
       <g>
-        <g id="Page-1" stroke="none" fillRule="evenodd">
+        <g id="Page-1" stroke="none" fillRule="evenodd" 
+>
           <g id="costume1">
             <g id="costume1.1">
               <g id="tail">
@@ -19,15 +38,17 @@ export default function CatSprite() {
                   d="M 21.9 73.8 C 19.5 73.3 16.6 72.5 14.2 70.3 C 8.7 65.4 7 57.3 3.2 59.4 C -0.7 61.5 -0.6 74.6 11.6 78.6 C 15.8 80 19.6 80 22.7 79.9 C 23.5 79.9 30.4 79.2 32.8 75.8 C 35.2 72.4 33.5 71.5 32.7 71.1 C 31.8 70.6 25.3 74.4 21.9 73.8 Z "
                   stroke="#001026"
                   strokeWidth="1.2"
-                  fill="#FFAB19"
+                  fill="white"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className={classes.tail}
                 />
                 <path
                   d="M 3.8 59.6 C 1.8 60.2 0.8 64.4 1.8 67.9 C 2.8 71.4 4.4 73.2 5.7 74.5 C 5.5 73.8 5.1 71.6 6.8 70.3 C 8.9 68.6 12.6 69.5 12.6 69.5 C 12.6 69.5 9.5 65.7 7.9 63 C 6.3 60.7 5.8 59.2 3.8 59.6 Z "
                   id="detail"
-                  fill="#FFFFFF"
+                  fill="#FFFFF"
                   strokeWidth="1"
+                  className={classes.tailTip}
                 />
               </g>
               <path
@@ -38,6 +59,7 @@ export default function CatSprite() {
                 fill="#FFAB19"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className={classes.legs}
               />
               <path
                 d="M53.6,60.7 C54.1,61.1 60.2,68.3 62.2,66.5 C64.6,64.4 67.9,60.3 71.5,63.6 C75.1,66.9 68.3,72.5 65.4,74 C58.5,77.1 52.9,71.2 51.7,69.6 C50.5,68 48.4,65.3 48.4,62.7 C48.5,59.9 51.9,59.2 53.6,60.7 Z"
@@ -47,6 +69,8 @@ export default function CatSprite() {
                 fill="#FFAB19"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className={classes.arm}
+                
               />
               <g id="body-and-leg">
                 <path
@@ -57,12 +81,14 @@ export default function CatSprite() {
                   fill="#FFAB19"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className={classes.bodyAndBackLeg}
                 />
                 <path
                   d="M 50.6 70 C 50.6 70 52.5 67.5 48.2 64.8 C 43.7 61.9 42 65.1 40.2 67.5 C 38.2 70.6 40.2 72.1 42.2 73.9 C 43.8 75.4 45.3 76.6 45.3 76.6 C 45.3 76.6 48.4 74.5 50.6 70 Z "
                   id="tummy"
                   fill="#FFFFFF"
                   strokeWidth="1"
+                  className={classes.stomach}
                 />
               </g>
               <path
@@ -73,6 +99,7 @@ export default function CatSprite() {
                 fill="#FFAB19"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className={classes.arm}
               />
               <g id="head">
                 <path
@@ -86,6 +113,7 @@ export default function CatSprite() {
                   id="face"
                   fill="#FFFFFF"
                   strokeWidth="1"
+                  className={classes.mouth}
                 />
                 <path
                   d="M 45 41.1 C 45 40.7 45.4 40.4 45.8 40.5 C 47.7 41.2 53.1 42.8 59.1 43.2 C 64.5 43.5 67.7 43.2 69.2 42.9 C 69.7 42.8 70.1 43.3 69.9 43.8 C 69 46.5 65.2 54 54.7 53.4 C 45.6 52.4 44.7 46 45 41.1 Z "
@@ -95,6 +123,7 @@ export default function CatSprite() {
                   fill="#FFFFFF"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className={classes.teathColor}
                 />
                 <path
                   d="M 83 35.4 C 83 35.4 90.2 35.3 94.9 31.5 "
@@ -122,6 +151,7 @@ export default function CatSprite() {
                   fill="#001026"
                   strokeLinecap="round"
                   strokeLinejoin="round"
+                  className={classes.nose}
                 />
                 <path
                   d="M 14.6 31.2 C 14.6 31.2 23.2 34 26.7 37.1 "
@@ -150,6 +180,7 @@ export default function CatSprite() {
                     fill="#FFFFFF"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className={classes.pupil}
                   />
                   <path
                     d="M 71 26.7 C 71 27.8 70.2 28.7 69.2 28.7 C 68.2 28.7 67.4 27.8 67.4 26.7 C 67.4 25.6 68.2 24.7 69.2 24.7 C 70.2 24.7 71 25.6 71 26.7 "
@@ -166,6 +197,7 @@ export default function CatSprite() {
                     fill="#FFFFFF"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className={classes.pupil}
                   />
                   <path
                     d="M 46 29.6 C 46 30.7 45.2 31.6 44.2 31.6 C 43.2 31.6 42.4 30.7 42.4 29.6 C 42.4 28.5 43.2 27.6 44.2 27.6 C 45.2 27.7 46 28.5 46 29.6 "
@@ -180,5 +212,6 @@ export default function CatSprite() {
         </g>
       </g>
     </svg>
+    </div>
   );
 }
