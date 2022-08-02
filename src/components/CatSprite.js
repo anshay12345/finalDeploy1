@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function CatSprite() {
   const { hello,hmm } = useSelector((state) => state);
-  console.log(hello," ", hmm);
+ // console.log(hello," ", hmm);
   return (
     <div className={classes.wholeCat}>
       {hello? 
