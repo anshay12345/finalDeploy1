@@ -86,9 +86,3 @@
 .nose{
     fill: var(--noseColor);
 }
-/* @keyframes mymove {
-  
-  100% {left: 200px; top: 200px;}
-  } */
-/* 
-rotate3d(x,y,z,angle) */

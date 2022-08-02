@@ -1,14 +1,13 @@
 import React from "react";
 import classes from "./CSS/movements.module.css"
 import { useDispatch, useSelector } from "react-redux";
-// import images from "../../public/icons/image.jpeg"
+
 
 export default function CatSprite() {
   const { hello,hmm } = useSelector((state) => state);
   console.log(hello," ", hmm);
   return (
     <div className={classes.wholeCat}>
-      {/* <img src={images} /> */}
       {hello? 
       <svg height="30" width="200" class={classes.invisible} >
         <text x="0" y="15" fill="red">   Hello</text>

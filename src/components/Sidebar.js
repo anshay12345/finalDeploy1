@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import classes from "./CSS/movements.module.css"
  const Sidebar = () => {
   const dispatch=useDispatch()
-  //FOR ROTATION of +20deg
+  //FOR ROTATION of +15deg
   const[degreeMoved, setDegreeMoved]=useState(15)
   const onCssChangeHandler=()=>{
     setDegreeMoved(degreeMoved+15)
@@ -15,7 +15,7 @@ import classes from "./CSS/movements.module.css"
 
   //---------------
 
-  //FOR ROTATION OF -20DEG
+  //FOR ROTATION OF -15DEG
   const[antiDegreeMoved, setAntiDegreeMoved]=useState(-15)
   const onAntiDegreeMovedHandler=()=>{
     setAntiDegreeMoved(antiDegreeMoved-15)
@@ -36,14 +36,7 @@ import classes from "./CSS/movements.module.css"
 
   }
 
-// const[randomValues, setRandomValues]=useState(1)
-// const onGoToRandomPosition=()=>{
-//   setRandomValues(Math.random())
-//   document.documentElement.style.setProperty('--randomX', (randomValues)*200+"px");
-//   setRandomValues(Math.random())
-//   document.documentElement.style.setProperty('--randomY', (randomValues)*200+"px");
-// }
-  
+
 
 
 const[xv,setXv]=useState(" ")
@@ -71,11 +64,7 @@ const onSendToCoordinateHandler=(event)=>{
   document.documentElement.style.setProperty('--moveFarwardXValue', y+"px");
 }
 
-const onMoveToRandom=()=>{
-  const t=document.getElementById("secondx").value
 
-
-}
 
 const onHelloTimeSubmitHandler=(event)=>{
   event.preventDefault()
@@ -184,14 +173,6 @@ const onTailTipColorChangeHandler=(event)=>{
         </form>
       </div>
   
-      {/* <div className="flex flex-row flex-wrap bg-blue-500 text-black px-2 py-1 my-2 text-sm cursor-pointer">
-        {"Slide "}
-        <form onSubmit={onMoveToRandom}>
-          <input type="text" size="1" id="secondx"></input>
-          {"randomly"}
-          <button className={classes.button}>Click</button>
-        </form>
-      </div> */}
 
       <div className="font-bold"> {"Looks"} </div>
       <div className="flex flex-row flex-wrap bg-blue-500 text-black px-2 py-1 my-2 text-sm cursor-pointer">
