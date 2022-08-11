@@ -179,22 +179,6 @@ const onGlideSubmit=(event)=>{
         {"When this sprite clicked"}
       </div>
       <div className="font-bold"> {"Motion"} </div>
-      <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer" onClick={onMove10StepsHandler}>
-        {"Move 10 steps"}
-      </div>
-      <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer" onClick={onAntiDegreeMovedHandler}>
-        {"Turn "}
-        <Icon name="undo" size={15} className="text-white mx-2" />
-        {"15 degrees"}
-      </div>
-
-      
-      <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer" onClick={onCssChangeHandler}>
-        {"Turn "}
-        <Icon name="redo" size={15} className="text-white mx-2" />
-        {"15 degrees"}
-      </div>
-
 
 
       <div className="flex flex-row flex-wrap bg-red-500 text-black px-2 py-1 my-2 text-sm cursor-pointer">
@@ -259,11 +243,32 @@ const onGlideSubmit=(event)=>{
            console.log(glideToX," ", glideToY)
            document.documentElement.style.setProperty('--moveFarwardValue', glideToX*25+"px");
            document.documentElement.style.setProperty('--moveFarwardXValue', glideToY*25+"px");
+           setStepsMoved(glideToX*25/10)
         }}>
         
           <button className={classes.button}>Click</button>
         </form>
       </div>
+
+
+
+
+      <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer" onClick={onMove10StepsHandler}>
+        {"Move 10 steps"}
+      </div>
+      <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer" onClick={onAntiDegreeMovedHandler}>
+        {"Turn "}
+        <Icon name="undo" size={15} className="text-white mx-2" />
+        {"15 degrees"}
+      </div>
+
+      
+      <div className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer" onClick={onCssChangeHandler}>
+        {"Turn "}
+        <Icon name="redo" size={15} className="text-white mx-2" />
+        {"15 degrees"}
+      </div>
+
 
 
 
