@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./CSS/movements.module.css"
 import { useDispatch, useSelector } from "react-redux";
-
-
-export default function CatSprite() {
+import { forwardRef } from "react";
+import innerRef from "react"
+import {DragDropContext,Droppable, Draggable} from "react-beautiful-dnd"
+const CatSprite = (props)=> {
   const { hello,hmm } = useSelector((state) => state);
+
+
+ 
+
+ 
  // console.log(hello," ", hmm);
+ const max=10
+ const min=1
+ const pos=Math.floor(Math.random()*(max-min+1))+min
+ const pos1=Math.floor(Math.random()*(max-min+1))+min
+ function myMove() {
+  let id = null;
+  const elem = document.getElementById("thing");   
+  let posp = pos;
+  clearInterval(id);
+  id = setInterval(frame, 5);
+  function frame() {
+    if (posp == 350) {
+      clearInterval(id);
+    } else {
+      posp++; 
+      elem.style.position = "relative";
+      elem.style.top = posp + "px"; 
+      elem.style.left = posp + "px"; 
+    }
+  }
+
+} 
+//const { provided, innerRef } = props;
   return (
-    <div className={classes.wholeCat}>
+    // <DragDropContext>
+    //   <Droppable droppableId="thing">
+    //     {(provided)=>{        
+    // <div className={classes.wholeCat} id="thing" onClick={myMove} {...provided.droppableProps} ref={provided.innerRef}>
+       <div className={classes.wholeCat} id="thing" onClick={myMove}>
       {hello? 
       <svg height="30" width="200" class={classes.invisible} >
         <text x="0" y="15" fill="red">   Hello</text>
@@ -16,7 +49,9 @@ export default function CatSprite() {
         <text x="0" y="15" fill="red">Hmm</text>
       </svg>
       }
-      
+  {/* <Draggable draggableId="id">
+    {(provided)=>{
+
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="95.17898101806641"
@@ -25,8 +60,20 @@ export default function CatSprite() {
       version="1.1"
       xmlSpace="preserve"
       className={classes.dimentions}
+      {...provided.draggableProps}
+      ref={provided.innerRef}
       
-    >
+    > */}
+    <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="95.17898101806641"
+    height="100.04156036376953"
+    viewBox="0.3210171699523926 0.3000000357627869 95.17898101806641 100.04156036376953"
+    version="1.1"
+    xmlSpace="preserve"
+    className={classes.dimentions}
+    
+  >
       <g>
         <g id="Page-1" stroke="none" fillRule="evenodd" 
 >
@@ -211,6 +258,13 @@ export default function CatSprite() {
         </g>
       </g>
     </svg>
+    {/* }}
+    </Draggable> */}
     </div>
+    // }}
+    // </Droppable>
+    // </DragDropContext >
   );
 }
+
+export default CatSprite

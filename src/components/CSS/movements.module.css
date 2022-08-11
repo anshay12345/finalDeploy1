@@ -16,19 +16,34 @@
     --pupilColor: white;
     --noseColor: black;
     --catVisibility: visible;
+    --glideVariableX: 0px;
+    --glideVariableY: 0px;
+    --initialGlideX: 0px;
+    --initialGlideY: 0px;
+    --glideTime: 0s;
 }
 
 
 .wholeCat{
-    /* transform: translate(var(--moveFarwardValue), 20px) rotate(var(--rotateValue)); */
-    /* transform: rotate(var(--rotateValue)); */
     transform: rotate(var(--rotateValue)) translate(var(--moveFarwardValue),var(--moveFarwardXValue));
-    /* position: relative; */
-    /* animation: mymove 5s linear infinite;
-    animation-direction: alternate; */
     size: 400px;
     visibility: var(--catVisibility);
+    
+    position: relative;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-name: example;
+    animation-duration: 5s;   
+    top: 0px;
+    left: 0px;
+    
 }
+
+
+@keyframes example {
+    0%   {left:0px; top:0px;}
+    100% {left:var(--glideVariableX); top:var(--glideVariableY);}
+  }
 .invisible{
     
     visibility: var(--visibilityValue);

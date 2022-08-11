@@ -1,9 +1,19 @@
-import React from "react";
+import React, { createRef } from "react";
 import Icon from "./Icon";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./CSS/movements.module.css"
+import CatSprite from "./CatSprite";
+import myMove from "./CatSprite.js"
+import App from "../App";
  const Sidebar = () => {
+  //console.log(myMove)
+  //console.log(document.getElementById(ref))
+  // const carRef=createRef()
+  // const catId=CatSprite().props.id
+  // const cat=document.getElementById(catId)
+  console.log(CatSprite())
+  // console.log(catId)
   const dispatch=useDispatch()
   //FOR ROTATION of +15deg
   const[degreeMoved, setDegreeMoved]=useState(15)
@@ -131,9 +141,33 @@ const onTailTipColorChangeHandler=(event)=>{
   document.documentElement.style.setProperty('--tailTipColor', tailtipcolor);
 
 }
+
+const [glideTime,setGlideTime] = useState(0)
+const onGlideTime=(event)=>{
+event.preventDefault()
+var t=document.getElementById("glideTime").value
+setGlideTime(t)
+}
+const onGlideSubmit=(event)=>{
+  event.preventDefault()
+
+
+  const max=10
+  const min=1
+  const slideToX=Math.floor(Math.random()*(max-min+1))+min
+  const slideToY=Math.floor(Math.random()*(max-min+1))+min
+ 
+  console.log(slideToX," ", slideToY)
+  document.documentElement.style.setProperty('--glideVariableX', slideToX*25+"px");
+  document.documentElement.style.setProperty('--glideVariableY', slideToY*25+"px");
+ 
+
+
+}
+
   return (
   
-    <div className="w-60 flex-none h-full overflow-y-auto flex flex-col items-start p-2 border-r border-gray-200">
+    <div className="w-60 flex-none h-full overflow-y-auto flex flex-col items-start p-2 border-r border-gray-200" id="contentContainer">
      
       <div className="font-bold"> {"Events"} </div>
       <div className="flex flex-row flex-wrap bg-yellow-500 text-white px-2 py-1 my-2 text-sm cursor-pointer" >
@@ -161,8 +195,8 @@ const onTailTipColorChangeHandler=(event)=>{
         {"15 degrees"}
       </div>
    
-      <div className="flex flex-row flex-wrap bg-blue-500 text-black px-2 py-1 my-2 text-sm cursor-pointer">
-        {"Go to "}
+      <div className="flex flex-row flex-wrap bg-red-500 text-black px-2 py-1 my-2 text-sm cursor-pointer">
+        {"Go to custom"}
         {/* <Icon name="redo" size={15} className="text-white mx-2" /> */}
         <form onSubmit={onSendToCoordinateHandler}>
         <label for="fname">X:</label>
@@ -173,6 +207,72 @@ const onTailTipColorChangeHandler=(event)=>{
         </form>
       </div>
   
+          
+
+
+
+      <div className="flex flex-row flex-wrap bg-red-500 text-black px-2 py-1 my-2 text-sm cursor-pointer">
+        {"Drop to Random place"}
+        {/* <Icon name="redo" size={15} className="text-white mx-2" /> */}
+        <form onSubmit={(event)=>{
+           event.preventDefault();
+           const max=10
+           const min=1
+           const glideToX=Math.floor(Math.random()*(max-min+1))+min
+           const glideToY=Math.floor(Math.random()*(max-min+1))+min
+           console.log(glideToX," ", glideToY)
+           document.documentElement.style.setProperty('--moveFarwardValue', glideToX*25+"px");
+           document.documentElement.style.setProperty('--moveFarwardXValue', glideToY*25+"px");
+        }}>
+        
+          <button className={classes.button}>Click</button>
+        </form>
+      </div>
+
+
+      <div className="flex flex-row flex-wrap bg-red-500 text-black px-2 py-1 my-2 text-sm cursor-pointer">
+        {"Glide to Random place"}
+        
+        <form onSubmit={(event)=>{
+           event.preventDefault();
+           const max=10
+           const min=1
+           const slideToX=Math.floor(Math.random()*(max-min+1))+min
+           const slideToY=Math.floor(Math.random()*(max-min+1))+min
+          
+           console.log(slideToX," ", slideToY)
+           document.documentElement.style.setProperty('--glideVariableX', slideToX*25+"px");
+           document.documentElement.style.setProperty('--glideVariableY', slideToY*25+"px");
+          
+           
+        }}>
+     
+
+          <button className={classes.button} onClick={onGlideSubmit}>Click</button>
+        </form>
+      </div>
+
+{/* 
+      function myMove() {
+  let id = null;
+  const elem = document.getElementById("animate");   
+  let pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + "px"; 
+      elem.style.left = pos + "px"; 
+    }
+  }
+} */}
+
+
+      
+
 
       <div className="font-bold"> {"Looks"} </div>
       <div className="flex flex-row flex-wrap bg-blue-500 text-black px-2 py-1 my-2 text-sm cursor-pointer">
@@ -346,3 +446,6 @@ const onTailTipColorChangeHandler=(event)=>{
   );
 }
 export default Sidebar
+
+
+
