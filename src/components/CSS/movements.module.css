@@ -31,9 +31,10 @@
     
     position: relative;
     animation-fill-mode: forwards;
-    animation-timing-function: linear;
     animation-name: example;
-    animation-duration: 5s;   
+    animation-duration: 5s; 
+    animation-timing-function: linear;
+  
     top: 0px;
     left: 0px;
     
