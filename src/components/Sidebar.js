@@ -195,6 +195,26 @@ const onGlideSubmit=(event)=>{
         {"15 degrees"}
       </div>
 
+
+
+      <div className="flex flex-row flex-wrap bg-red-500 text-black px-2 py-1 my-2 text-sm cursor-pointer">
+        {"Glide to Random place"}
+        
+        <form onSubmit={(event)=>{
+           event.preventDefault();
+           const max=10
+           const min=1
+           const slideToX=Math.floor(Math.random()*(max-min+1))+min
+           const slideToY=Math.floor(Math.random()*(max-min+1))+min
+          
+           console.log(slideToX," ", slideToY)
+           document.documentElement.style.setProperty('--glideVariableX', slideToX*25+"px");
+           document.documentElement.style.setProperty('--glideVariableY', slideToY*25+"px"); 
+        }}>
+          
+          <button className={classes.button} onClick={onGlideSubmit}>Click</button>
+        </form>
+      </div>
       <div className="flex flex-row flex-wrap bg-red-500 text-black px-2 py-1 my-2 text-sm cursor-pointer" >
         {"Custom value for degree coordinate "}
         <form onSubmit={event=>{
@@ -246,45 +266,8 @@ const onGlideSubmit=(event)=>{
       </div>
 
 
-      <div className="flex flex-row flex-wrap bg-red-500 text-black px-2 py-1 my-2 text-sm cursor-pointer">
-        {"Glide to Random place"}
-        
-        <form onSubmit={(event)=>{
-           event.preventDefault();
-           const max=10
-           const min=1
-           const slideToX=Math.floor(Math.random()*(max-min+1))+min
-           const slideToY=Math.floor(Math.random()*(max-min+1))+min
-          
-           console.log(slideToX," ", slideToY)
-           document.documentElement.style.setProperty('--glideVariableX', slideToX*25+"px");
-           document.documentElement.style.setProperty('--glideVariableY', slideToY*25+"px"); 
-        }}>
-          
-          <button className={classes.button} onClick={onGlideSubmit}>Click</button>
-        </form>
-      </div>
 
-      <div className="flex flex-row flex-wrap bg-red-500 text-black px-2 py-1 my-2 text-sm cursor-pointer">
-        {"Glide to"}
-        <form onSubmit={(event)=>{
-           event.preventDefault();
-           
-           const slideToX=document.getElementById("glideX").value
-           const slideToY=document.getElementById("glideX").value
-          
-           console.log(slideToX," ", slideToY)
-           document.documentElement.style.setProperty('--glideVariableX', slideToX+"px");
-           document.documentElement.style.setProperty('--glideVariableY', slideToY+"px"); 
-        }}>
-          <label for="fname">X:</label>
-          <input type="text" size="1" id="glideX" ></input>
-          <label for="fname">Y:</label>
-          <input type="text" size="1" id="glideY" ></input>
-          <button className={classes.button}>Click</button>
-          
-        </form>
-      </div>
+      
 
 {/* 
       function myMove() {
