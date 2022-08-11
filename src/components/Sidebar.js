@@ -208,8 +208,8 @@ const onGlideSubmit=(event)=>{
            const slideToY=Math.floor(Math.random()*(max-min+1))+min
           
            console.log(slideToX," ", slideToY)
-           document.documentElement.style.setProperty('--glideVariableX', slideToX*25+"px");
-           document.documentElement.style.setProperty('--glideVariableY', slideToY*25+"px"); 
+           document.documentElement.style.setProperty('--glideVariableX', slideToX*50+"px");
+           document.documentElement.style.setProperty('--glideVariableY', slideToY*50+"px"); 
         }}>
           
           <button className={classes.button} onClick={onGlideSubmit}>Click</button>
