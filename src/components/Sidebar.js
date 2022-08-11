@@ -195,7 +195,7 @@ const onGlideSubmit=(event)=>{
         {"15 degrees"}
       </div>
 
-      <div className="flex flex-row flex-wrap bg-blue-500 text-black px-2 py-1 my-2 text-sm cursor-pointer" >
+      <div className="flex flex-row flex-wrap bg-red-500 text-black px-2 py-1 my-2 text-sm cursor-pointer" >
         {"Custom value for degree coordinate "}
         <form onSubmit={event=>{
           event.preventDefault()
